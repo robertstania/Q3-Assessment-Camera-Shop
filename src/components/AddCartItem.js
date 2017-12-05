@@ -3,16 +3,16 @@ import React, { Component } from 'react'
 import { addCamera } from '../actions/cameras'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
+import CameraInput from '../components/CameraInput'
 
 import Camera from '../components/Camera'
-import { Container, Form, FormGroup, Label, Input, Button } from 'reactstrap'
+import { Container, Card, CardSubtitle, Form, FormGroup, Label, Input, Button } from 'reactstrap'
 
 class AddCartItem extends Component {
   state = {
 
-    title: '',
     subtotal: 0,
-    tax: 0,
+    tax: 8.6,
     total: 0,
   }
 
@@ -26,16 +26,9 @@ class AddCartItem extends Component {
     return (
     <div >
       <Container style={{marginTop: 30}}>
-       <Form onSubmit={this.handleSubmit}>
-         <FormGroup>
+       <Card onSubmit={this.handleSubmit}>
            <Label for="title">Your Cart</Label>
-           <Input
-             type="text"
-             id="title"
-             value={this.state.title}
-             onChange={(e) => this.setState({title: e.target.value})}
-           />
-         </FormGroup>
+           <CardSubtitle>Camera Item{this.props.camera.title}</CardSubtitle>
          <FormGroup>
            <Label for="subtotal">Subtotal</Label>
            <Input
@@ -50,7 +43,7 @@ class AddCartItem extends Component {
            <Input
              type="number"
              id="tax"
-             value={this.state.tax}
+             value={(this.state.tax /100).toFixed(2)}
              onChange={(e) => this.setState({tax: e.target.value})}
            />
          </FormGroup>
@@ -64,7 +57,7 @@ class AddCartItem extends Component {
            />
          </FormGroup>
          <Button color="primary" type="submit">Checkout</Button>
-       </Form>
+       </Card>
      </Container>
     </div>
    )

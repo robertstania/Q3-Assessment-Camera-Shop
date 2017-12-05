@@ -1,21 +1,26 @@
 /*eslint-disable*/
 import React from 'react';
 import {addCamera} from '../actions/cameras'
-import { Container, Row, Col, Card, CardBody, CardSubtitle, CardImg, Button, Form, FormGroup, Label, Input } from 'reactstrap';
+import PropTypes from 'prop-types';
+
+import { Container, Row, Col, Card, CardBody, CardTitle, CardSubtitle, CardImg, Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
 class CameraInput extends React.Component {
-
   render(){
+    console.log('props in camera input: ', this.props)
+  //   CameraInput.propTypes = {
+  //     on_sale: React.PropTypes.bool.isRequired
+  // }
     return (
       <div>
         <Card>
           <CardBody>
-
-
-                <CardSubtitle>Title: {this.props.camera ? this.props.camera.title : ''}</CardSubtitle>
-                <CardImg top width="100%" src={this.props.camera ? this.props.camera.image : ''} alt="Card image cap" />
-                <CardSubtitle>Rating: {this.props.camera ? this.props.camera.rating : ''}</CardSubtitle>
-                <CardSubtitle>Price: {this.props.camera ? this.props.camera.price : ''}</CardSubtitle>
+            <CardSubtitle>Title: {this.props.camera ? this.props.camera.title : ''}</CardSubtitle>
+            <CardImg top width="100%" src={this.props.camera ? this.props.camera.image : ''} alt="Card image cap" />
+            <CardSubtitle>Rating: {this.props.camera ? this.props.camera.rating : ''}</CardSubtitle>
+            <CardSubtitle>Price: ${(this.props.camera ? this.props.camera.price : ''/100).toFixed(2)}</CardSubtitle>
+            <CardSubtitle>On Sale: {this.props.camera.on_sale.true}</CardSubtitle>
+            <Button>Add to Cart: {this.props.camera ? this.props.camera.in_cart : ''}</Button>
 
           </CardBody>
         </Card>
