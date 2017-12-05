@@ -1,16 +1,19 @@
-import React from 'react';
-import { Container, Form, FormGroup, Label, Input, Button } from 'reactstrap';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import { addCamera } from '../actions/cameras';
+/* eslint-disable */
+import React, { Component } from 'react'
+import { addCamera } from '../actions/cameras'
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux'
 
-class AddCartItem extends React.Component {
+import Camera from '../components/Camera'
+import { Container, Form, FormGroup, Label, Input, Button } from 'reactstrap'
+
+class AddCartItem extends Component {
   state = {
 
     title: '',
-    image: '',
-    rating: '',
-    price: 0,
+    subtotal: 0,
+    tax: 0,
+    total: 0,
   }
 
   handleSubmit = (e) => {
@@ -21,48 +24,57 @@ class AddCartItem extends React.Component {
 
   render () {
     return (
+    <div >
       <Container style={{marginTop: 30}}>
-        <Form onSubmit={this.handleSubmit}>
-          <FormGroup>
-            <Label for="exampleTitle">Title</Label>
-            <Input
-              type="text"
-              id="exampleTitle"
-              value={this.state.title}
-              onChange={(e) => this.setState({title: e.target.value})}
-            />
-          </FormGroup>
-          <FormGroup>
-            <Label for="examplePhotoUrl">Photo Url</Label>
-            <Input
-              type="text"
-              id="examplePhotoUrl"
-              value={this.state.photo_url}
-              onChange={(e) => this.setState({photo_url: e.target.value})}
-            />
-          </FormGroup>
-          <FormGroup>
-            <Label for="exampleRating">Rating</Label>
-            <Input
-              type="text"
-              id="exampleRating"
-              value={this.state.rating}
-              onChange={(e) => this.setState({rating: e.target.value})}
-            />
-          </FormGroup>
-          <FormGroup>
-            <Label for="examplePrice">Price</Label>
-            <Input
-              type="number"
-              id="examplePrice"
-              value={this.state.price}
-              onChange={(e) => this.setState({price: e.target.value})}
-            />
-          </FormGroup>
-          <Button color="primary" type="submit">Submit</Button>
-        </Form>
-      </Container>
-    )
+       <Form onSubmit={this.handleSubmit}>
+         <FormGroup>
+           <Label for="title">Your Cart</Label>
+           <Input
+             type="text"
+             id="title"
+             value={this.state.title}
+             onChange={(e) => this.setState({title: e.target.value})}
+           />
+         </FormGroup>
+         <FormGroup>
+           <Label for="subtotal">Subtotal</Label>
+           <Input
+             type="number"
+             id="subtotal"
+             value={this.state.subtotal}
+             onChange={(e) => this.setState({subtotal: e.target.value})}
+           />
+         </FormGroup>
+         <FormGroup>
+           <Label for="tax">Tax</Label>
+           <Input
+             type="number"
+             id="tax"
+             value={this.state.tax}
+             onChange={(e) => this.setState({tax: e.target.value})}
+           />
+         </FormGroup>
+         <FormGroup>
+           <Label for="total">Total</Label>
+           <Input
+             type="number"
+             id="total"
+             value={this.state.total}
+             onChange={(e) => this.setState({total: e.target.value})}
+           />
+         </FormGroup>
+         <Button color="primary" type="submit">Checkout</Button>
+       </Form>
+     </Container>
+    </div>
+   )
+ }
+}
+
+function mapStateToProps(state, props) {
+    console.log(' props in add cart item : ', this.state)
+  return {
+    camera: state.cameras
   }
 }
 
@@ -72,4 +84,4 @@ function mapDispatchToProps(dispatch) {
   }
 }
 
-export default connect(null, mapDispatchToProps)(AddCartItem);
+export default connect(mapStateToProps, mapDispatchToProps)(AddCartItem)
