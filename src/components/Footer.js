@@ -1,3 +1,4 @@
+/* eslint-disable */
 import React from 'react';
 
 class CartFooter extends React.Component {
@@ -7,7 +8,7 @@ class CartFooter extends React.Component {
         <div className="container">
           <div className="row">
             <div className="col l6 s12">
-              <h5 className="white-text">Camera Shop</h5>
+              <h5 className="white-text"></h5>
             </div>
           </div>
         </div>

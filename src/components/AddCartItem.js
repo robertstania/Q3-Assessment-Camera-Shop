@@ -4,7 +4,6 @@ import { addCamera } from '../actions/cameras'
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux'
 import CameraInput from '../components/CameraInput'
-
 import Camera from '../components/Camera'
 import { Container, Card, CardSubtitle, Form, FormGroup, Label, Input, Button } from 'reactstrap'
 
@@ -65,7 +64,6 @@ class AddCartItem extends Component {
 }
 
 function mapStateToProps(state, props) {
-    console.log(' props in add cart item : ', this.state)
   return {
     camera: state.cameras
   }
