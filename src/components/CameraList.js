@@ -1,9 +1,14 @@
 /* eslint-disable */
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import CameraInput from './CameraInput'
-import { Container, Row, Col } from 'reactstrap';
 import ReactStars from 'react-stars';
+
+import { connect } from 'react-redux'
+import { Container, Row, Col } from 'reactstrap';
+
+import Camera from './Camera'
+import CameraInput from './CameraInput'
+
+
 
 class CameraList extends Component {
   render () {
@@ -42,39 +47,3 @@ function mapStateToProps(state) {
 }
 
 export default connect(mapStateToProps, null)(CameraList)
-
-
-
-{/*import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { Container, Row, Col } from 'reactstrap';
-import CameraInput from './CameraInput';
-import ReactStars from 'react-stars';
-
-class CameraList extends Component {
-  render () {
-    let containerMargin = { marginTop: '35px' }
-    let listOfCameras= this.props.cameras.map(camera => {
-      return (
-        <Col key={camera.id} md={4}>
-          <CameraInput camera={camera} />
-        </Col>
-      )
-    })
-    return (
-      <Container style={containerMargin}>
-        <Col>
-          {listOfCameras}
-        </Col>
-      </Container>
-    )
-  }
-}
-
-function mapStateToProps(state) {
-  return {
-    cameras: state.cameras
-  }
-}
-
-export default connect(mapStateToProps, null)(CameraList); */}

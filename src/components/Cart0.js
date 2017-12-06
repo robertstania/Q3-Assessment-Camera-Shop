@@ -1,13 +1,18 @@
 /* eslint-disable */
-import React, { Component } from 'react'
-import { addCamera } from '../actions/cameras'
-import { connect } from 'react-redux'
-import { bindActionCreators } from 'redux'
-import CameraInput from '../components/CameraInput'
-import Camera from '../components/Camera'
-import { Container, Card, CardSubtitle, Form, FormGroup, Label, Input, Button } from 'reactstrap'
+import React, { Component } from 'react';
 
-class AddCartItem extends Component {
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { Container, Card, CardSubtitle, Form, FormGroup, Label, Input, Button } from 'reactstrap';
+
+import Camera from '../components/Camera';
+import CameraInput from '../components/CameraInput';
+
+import { addCamera } from '../actions/cameras';
+import { removeCamera } from '../actions/cameras';
+
+
+class Cart extends Component {
   state = {
 
     subtotal: 0,
@@ -21,13 +26,17 @@ class AddCartItem extends Component {
     this.props.history.push('/cameras')
   }
 
+
+
   render () {
+    
+
     return (
     <div >
       <Container style={{marginTop: 30}}>
        <Card onSubmit={this.handleSubmit}>
            <Label for="title">Your Cart</Label>
-           <CardSubtitle>Camera Item{this.props.camera.title}</CardSubtitle>
+           {/*{itemsInCart}*/}
          <FormGroup>
            <Label for="subtotal">Subtotal</Label>
            <Input
@@ -42,7 +51,7 @@ class AddCartItem extends Component {
            <Input
              type="number"
              id="tax"
-             value={(this.state.tax /100).toFixed(2)}
+             value={(this.state.tax * .086).toFixed(2)}
              onChange={(e) => this.setState({tax: e.target.value})}
            />
          </FormGroup>
@@ -51,11 +60,18 @@ class AddCartItem extends Component {
            <Input
              type="number"
              id="total"
-             value={this.state.total}
+             value={(this.state.subtotal + Number(this.state.tax)).toFixed(2)}
              onChange={(e) => this.setState({total: e.target.value})}
            />
          </FormGroup>
+         <FormGroup>
          <Button color="primary" type="submit">Checkout</Button>
+           <Label for="trash"></Label>
+             <Icon
+               icon={trash}
+               value={this.props.camera.title}
+               onClick={this.handleRemoveItem}/>
+         </FormGroup>
        </Card>
      </Container>
     </div>
@@ -71,8 +87,9 @@ function mapStateToProps(state, props) {
 
 function mapDispatchToProps(dispatch) {
   return {
-    addCamera: bindActionCreators(addCamera, dispatch)
+    addCamera: bindActionCreators(addCamera, dispatch),
+    removeCamera: bindActionCreators(removeCamera, dispatch)
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(AddCartItem)
+export default connect(mapStateToProps, mapDispatchToProps)(Cart)

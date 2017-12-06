@@ -1,13 +1,17 @@
 /*eslint-disable*/
-
 import React, { Component } from 'react';
-import AddCartItem from './AddCartItem';
-import CameraList from './CameraList'
-import { updateTitleFilter } from '../actions/titleFilter'
-import { updateSortType } from '../actions/sortCameras'
+
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux';
 import { Container, Row, Col, Card, CardBody, CardSubtitle, CardImg, Button, Form, FormGroup, Label, Input } from 'reactstrap';
+
+import Cart from './Cart';
+import Camera from './Camera'
+import CameraList from './CameraList'
+import CameraInput from './CameraInput'
+
+import { updateTitleFilter } from '../actions/titleFilter'
+import { updateSortType } from '../actions/sortCameras'
 
 
 class Main extends Component {
@@ -38,7 +42,7 @@ class Main extends Component {
         <Container>
           <Row>
               <Col><CameraList /></Col>
-              <Col><AddCartItem/></Col>
+              <Col><Cart/></Col>
           </Row>
         </Container>
       </Form>
