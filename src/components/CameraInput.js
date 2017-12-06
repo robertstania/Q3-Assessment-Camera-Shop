@@ -16,7 +16,7 @@ import {addCamera} from '../actions/cameras'
 
 
 const CameraInput = (props) => {
-  console.log('camera input:', props.car)
+  console.log('camera input:', props.cameras)
   console.log('props', props)
 
   let onsale = "On Sale";
