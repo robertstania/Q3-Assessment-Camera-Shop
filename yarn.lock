@@ -91,6 +91,10 @@ amdefine@>=0.0.4:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/amdefine/-/amdefine-1.0.1.tgz#4a5282ac164729e93619bcfd3ad151f817ce91f5"
 
+animate.css@^3.5.2:
+  version "3.5.2"
+  resolved "https://registry.yarnpkg.com/animate.css/-/animate.css-3.5.2.tgz#91e668dc069a808e5e499514867b97aae0166c36"
+
 anser@1.4.1:
   version "1.4.1"
   resolved "https://registry.yarnpkg.com/anser/-/anser-1.4.1.tgz#c3641863a962cebef941ea2c8706f2cb4f0716bd"
@@ -2711,6 +2715,14 @@ follow-redirects@^1.2.5:
   dependencies:
     debug "^3.1.0"
 
+font-awesome.css@^4.7.2:
+  version "4.7.2"
+  resolved "https://registry.yarnpkg.com/font-awesome.css/-/font-awesome.css-4.7.2.tgz#075a42011428f2027254ef69860c757ab816c952"
+
+font-awesome@^4.7.0:
+  version "4.7.0"
+  resolved "https://registry.yarnpkg.com/font-awesome/-/font-awesome-4.7.0.tgz#8fa8cf0411a1a31afd07b06d2902bb9fc815a133"
+
 for-in@^1.0.1:
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/for-in/-/for-in-1.0.2.tgz#81068d295a8142ec0ac726c6e2200c30fb6d5e80"
@@ -5315,8 +5327,8 @@ react-error-overlay@^1.0.9:
     source-map "0.5.6"
 
 react-form@^7.0.3:
-  version "2.12.1"
-  resolved "https://registry.yarnpkg.com/react-form/-/react-form-2.12.1.tgz#917432290c757c7fe959cb66b40b5359883a830f"
+  version "2.14.1"
+  resolved "https://registry.yarnpkg.com/react-form/-/react-form-2.14.1.tgz#2eb5299c929d2446f185f79a7d0b20f34c33c2ad"
   dependencies:
     babel-runtime "^6.26.0"
     circular-json "^0.4.0"
